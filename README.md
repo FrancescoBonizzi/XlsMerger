@@ -4,9 +4,9 @@ XlsMerger is a simple WPF application where you can select multiple Excel files 
 Technically speaking:
 - I implemented `MVVM` pattern with `MvvmLightLibs`
 - To communicate with Excel, I used the COM library `Microsoft.Office.Interop.Excel`
-\
+<br />
 ![Screenshot](https://raw.githubusercontent.com/FrancescoBonizzi/XlsMerger/master/Screenshots/XmMergerScreenshot.png)
-\
+<br />
 
 # Building
 Simply clone this repository and build the `XlsMerger.sln` solution.
