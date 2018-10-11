@@ -7,7 +7,6 @@ Technically speaking:
 
 ---
 ![Screenshot](https://raw.githubusercontent.com/FrancescoBonizzi/XlsMerger/master/Screenshots/XmMergerScreenshot.png)
----
 
 # Building
 Simply clone this repository and build the `XlsMerger.sln` solution.
