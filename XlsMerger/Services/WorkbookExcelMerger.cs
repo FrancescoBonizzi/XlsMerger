@@ -1,4 +1,5 @@
 ﻿using Microsoft.Office.Interop.Excel;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Runtime.InteropServices;
@@ -47,7 +48,8 @@ namespace XlsMerger.Services
 
                         foreach (Worksheet thisWorkbookSheet in thisFileWorkbook.Worksheets)
                         {
-                            thisWorkbookSheet.Name = $"{thisFileWorkbook.Name} - {thisWorkbookSheet.Name}";
+                            string newWorkbookSheetName = $"{thisFileWorkbook.Name} - {thisWorkbookSheet.Name}";
+                            thisWorkbookSheet.Name = ApplyWorkbookSheetNameRequirements(newWorkbookSheetName);
                             thisWorkbookSheet.Copy(newWorkbook.Worksheets[newWorkbook.Worksheets.Count]);
                         }
 
@@ -67,6 +69,31 @@ namespace XlsMerger.Services
                     Marshal.ReleaseComObject(newWorkbook);
                 }
             });
+        }
+
+        private string ApplyWorkbookSheetNameRequirements(string newWorkbookSheetName)
+        {
+            // Excel wants:
+            // - No more than 31 characters
+            // - No chars: \ / ? * [ ]
+            // - No empty name
+
+            newWorkbookSheetName = newWorkbookSheetName
+                .Replace("\\", string.Empty)
+                .Replace("/", string.Empty)
+                .Replace("?", string.Empty)
+                .Replace("*", string.Empty)
+                .Replace("[", string.Empty)
+                .Replace("]", string.Empty);
+
+            if (string.IsNullOrWhiteSpace(newWorkbookSheetName))
+                newWorkbookSheetName = $"SheetNoName{Guid.NewGuid().ToString("N")}";
+
+            newWorkbookSheetName = newWorkbookSheetName.Length <= 30
+                ? newWorkbookSheetName
+                : newWorkbookSheetName.Substring(0, 30);
+
+            return newWorkbookSheetName;
         }
     }
 }
