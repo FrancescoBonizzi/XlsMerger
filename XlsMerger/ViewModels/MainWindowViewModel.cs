@@ -62,12 +62,15 @@ namespace XlsMerger.ViewModels
                     {
                         ProgressBarVisibility = Visibility.Visible;
                         await _excelMerger.MergeFiles(FilesToMerge.Select(f => f.FilePath), NewFilePath);
-                        ProgressBarVisibility = Visibility.Hidden;
                         _dialogManager.ShowInformation($"Operation completed");
                     }
                     catch (Exception ex)
                     {
                         _dialogManager.ShowError(ex.Message);
+                    }
+                    finally
+                    {
+                        ProgressBarVisibility = Visibility.Hidden;
                     }
                 },
                 () => FilesToMerge.Any() && !string.IsNullOrWhiteSpace(NewFilePath));
