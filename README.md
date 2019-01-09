@@ -6,7 +6,7 @@ Technically speaking:
 - To communicate with Excel, I used the COM library `Microsoft.Office.Interop.Excel`
 
 ---
-![Screenshot](https://raw.githubusercontent.com/FrancescoBonizzi/XlsMerger/master/Screenshots/XmMergerScreenshot.png)
+![Screenshot](https://raw.githubusercontent.com/FrancescoBonizzi/XlsMerger/master/Screenshots/XlsMergerScreenshot.png)
 
 # Building
 Simply clone this repository and build the `XlsMerger.sln` solution.
