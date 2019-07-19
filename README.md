@@ -1,6 +1,6 @@
 # XlsMerger
 
-[![Build status](https://flowsoftproject.visualstudio.com/GithubOpenSource/_apis/build/status/XlsMerger)](https://flowsoftproject.visualstudio.com/GithubOpenSource/_build/latest?definitionId=25)
+[![Build status](https://dev.azure.com/fbonizzi/GithubOpenSource/_apis/build/status/XlsMerger)](https://dev.azure.com/fbonizzi/GithubOpenSource/_build/latest?definitionId=25)
 
 XlsMerger is a simple WPF application where you can select multiple Excel files in order to merge all of their sheets in a single file.
 
